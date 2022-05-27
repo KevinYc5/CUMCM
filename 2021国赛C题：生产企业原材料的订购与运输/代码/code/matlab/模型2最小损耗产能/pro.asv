@@ -1,0 +1,28 @@
+     
+load('D:\Base\CodeBase\matlab\data\e.mat') % ¶©»õÊı¾İ  e 
+load('D:\Base\CodeBase\matlab\data\xsum.mat')
+res_ = [];
+nn = 19;
+
+temp = zeros(nn, 8);
+
+for i = 1 : 24
+    ei = e(:,i);
+    q = reshape(xsum(:,i), 8, nn);
+    res = [];
+    for j = 1 : nn
+        resj =q(:,j)' * ei(j);
+        res = [res;resj];
+    end
+    res_ = [res_,res];
+    temp = temp + res;
+end
+
+temp = temp /24;
+
+
+%re = sum(temp);
+
+
+
+
